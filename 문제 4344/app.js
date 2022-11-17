@@ -11,20 +11,22 @@ solution(N, arr);
 
 function solution(A, B) {
   // Write your code
-
-  for (let i = 1; i < A + 1; i++) {
+  for (let i = 1; i <= A; i++) {
+    let num = B[i].shift();
     let count = 0;
-    let sum = 0;
-    let average = 0;
-    for (let j = 1; j < B[i].length; j++) {
-      sum += B[i][j] / B[i][0];
-      console.log(sum);
-      if (B[1][j] > sum) {
-        count += 1;
-        //console.log(count);
-        average = (count / B[i][0]) * 100;
-        //console.log(average);
+
+    let avg = B[i].reduce((a, b) => (a += b), 0);
+
+    avg /= num;
+
+    for (let j = 0; j < num; j++) {
+      if (B[i][j] > avg) {
+        count++;
       }
     }
+
+    let result = ((count / num) * 100).toFixed(3);
+
+    console.log(result + "%");
   }
 }
