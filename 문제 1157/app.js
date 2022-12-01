@@ -10,7 +10,7 @@ solution(N);
 
 function solution(N) {
   // Write your code
-  let lowN = N.toLowerCase().split("");
+  let lowN = N.toUpperCase().split("");
   let word = {};
   lowN.forEach((e) => {
     word[e] = (word[e] || 0) + 1;
@@ -20,7 +20,7 @@ function solution(N) {
   for (a in word) {
     if (word[a] > count) {
       count = word[a];
-      result = a.toUpperCase();
+      result = a;
     } else if (word[a] === count) {
       result = "?";
     }
